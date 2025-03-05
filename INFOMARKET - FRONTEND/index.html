@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <h1>InfoMarket</h1>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="login.html">
+                    <i class="fas fa-user"></i>
+                    <span>Minha Conta <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Faça o login</div>
+                </a>
+            </div>
+            <div class="cart">
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Meu carrinho</span>
+                    <div class="cart-info">0 produtos</div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL MEGA FODA -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-wine-bottle"></i> Adega <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-apple-alt"></i> Alimentos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cocktail"></i> Bebidas <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-spa"></i> Bem-Estar <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-candy-cane"></i> Bomboniere e Doces <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-drumstick-bite"></i> Carnes <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-snowflake"></i> Congelados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cheese"></i> Frios e Laticínios <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-pump-soap"></i> Higiene e Beleza <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-carrot"></i> Hortifruti <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-baby"></i> Infantil & Bebê <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-broom"></i> Limpeza <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-bread-slice"></i> Padaria e Rotisseria <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-paw"></i> Pet Shop <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-globe-americas"></i> Produtos Étnicos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-egg"></i> Páscoa <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-pepper-hot"></i> Temperos e Especiarias <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <!-- BANNER -->
+        <section class="banner">
+            <img src="/images/meu saco de compras.jpg" alt="Promoções da semana">
+            <div class="banner-controls">
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- COMPARADOR -->
+        <section class="price-comparison">
+            <h2>Comparação de Preços</h2>
+            
+            <div class="filter-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar produto...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <select>
+                        <option>Todas as categorias</option>
+                        <option>Alimentos</option>
+                        <option>Bebidas</option>
+                        <option>Limpeza</option>
+                        <option>Hortifruti</option>
+                    </select>
+                    <select>
+                        <option>Ordenar por</option>
+                        <option>Menor preço</option>
+                        <option>Maior preço</option>
+                        <option>Mais populares</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- ADD PRODUTOS COM JS -->
+            </div>
+        </section>
+
+        <!-- CATEGORIAS DE PRODUTOS -->
+        <section class="categories">
+            <h2>Escolha por categoria</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <img src="/images/alimentos.jpg" alt="Alimentos">
+                    <h3>Alimentos</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/frios e laticinios.jpg" alt="Frios e Laticínios">
+                    <h3>Frios e Laticínios</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/limpeza.jpg" alt="Limpeza">
+                    <h3>Limpeza</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/carnes.jpg" alt="Carnes">
+                    <h3>Carnes</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/congelados.jpg" alt="Congelados">
+                    <h3>Congelados</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/horti.jpg" alt="Hortifruti">
+                    <h3>Hortifruti</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="/images/utilidades.jpg" alt="Utilidades">
+                    <h3>Utilidades</h3>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket e um site comparador de preços de diferentes produtos em diferentes supermecados, permitindo que compre com o melhor preço no supermecado mais proimo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> maarcosvstorres12@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

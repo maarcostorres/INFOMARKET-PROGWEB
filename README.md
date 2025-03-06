@@ -1,5 +1,5 @@
 ## INFOMARKET - Programação Avançada para WEB:
-- **Alunos:** Abner Vinicius Lessa, Giovanni Milan Câmara, João Henrique Silva, Marcos Vinicius Torres, Rafael Chritian Wernesbach, Thiago Almeiada
+- **Alunos:** Abner Vinicius Lessa, Giovanni Milan Câmara, João Henrique Silva, Marcos Vinicius Torres, Rafael Christian Wernesbach, Thiago Almeiada
 - **Professor:** Wanderson Muniz de Santana
 - **Turma:** CC5Mb
 

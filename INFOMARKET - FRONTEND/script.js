@@ -1,21 +1,37 @@
-// FUNCTION DE ALTERAÇÃO DA BARRA LATERAL
+function toggleTheme() {
+    const body = document.body;
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    
+    body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode');
+    
+    const isDarkMode = body.classList.contains('dark-mode');
+    themeToggleBtn.innerHTML = isDarkMode ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    
+    // Salvar preferência do usuário
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+}
+
+// Função para alternar a barra lateral
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const main = document.querySelector('main');
     
-    // Em telas menores, a sidebar começa fechada
-    if (window.innerWidth < 992) {
-        sidebar.classList.remove('active');
-        main.classList.remove('sidebar-active');
-    } else {
+    function toggleSidebar() {
+        sidebar.classList.toggle('active');
+        main.classList.toggle('sidebar-active');
+    }
+    
+    // Inicialização da sidebar
+    if (window.innerWidth >= 992) {
         sidebar.classList.add('active');
         main.classList.add('sidebar-active');
     }
     
-    menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('active');
-        main.classList.toggle('sidebar-active');
+    menuToggle.addEventListener('click', function(event) {
+        event.stopPropagation();
+        toggleSidebar();
     });
     
     // Fechar a sidebar quando clicar fora dela em telas pequenas
@@ -24,22 +40,48 @@ document.addEventListener('DOMContentLoaded', function() {
             !sidebar.contains(event.target) && 
             !menuToggle.contains(event.target) && 
             sidebar.classList.contains('active')) {
+            toggleSidebar();
+        }
+    });
+
+    // Impedir que cliques dentro da sidebar a fechem
+    sidebar.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Ajustar a sidebar ao redimensionar a janela
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            sidebar.classList.add('active');
+            main.classList.add('sidebar-active');
+        } else {
             sidebar.classList.remove('active');
             main.classList.remove('sidebar-active');
         }
     });
+
+    // Configurar o botão de alternância de tema
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Verificar e aplicar o tema salvo
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
     
-    // LOAD PRODUTOS
+    // Carregar produtos
     loadProducts();
 });
 
 // Dados de exemplo para produtos
-// Esta é a parte que você pode modificar para adicionar novos produtos
 const products = [
     {
         id: 1,
         name: "Arroz Branco Tipo 1 - 5kg",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/Arroz.png",
         prices: {
             "Carone": 22.90,
             "Carrefour": 24.50,
@@ -50,7 +92,7 @@ const products = [
     {
         id: 2,
         name: "Feijão Preto - 1kg",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/feijão.png",
         prices: {
             "Carone": 7.49,
             "Carrefour": 7.99,
@@ -61,7 +103,7 @@ const products = [
     {
         id: 3,
         name: "Farinha de Trigo - 1kg",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/Farinha de Trigo.png",
         prices: {
             "Carone": 5.99,
             "Carrefour": 6.49,
@@ -72,7 +114,7 @@ const products = [
     {
         id: 4,
         name: "Café em Pó - 500g",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/cafe.png",
         prices: {
             "Carone": 16.90,
             "Carrefour": 17.99,
@@ -83,7 +125,7 @@ const products = [
     {
         id: 5,
         name: "Açúcar Cristal - 5kg",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/acucar.png",
         prices: {
             "Carone": 15.99,
             "Carrefour": 16.49,
@@ -94,7 +136,7 @@ const products = [
     {
         id: 6,
         name: "Óleo de Soja - 900ml",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "/images/soja.png",
         prices: {
             "Carone": 4.79,
             "Carrefour": 4.99,
@@ -175,17 +217,3 @@ function addNewProduct(name, image, prices) {
     
     return newProduct;
 }
-
-// Exemplo de como adicionar um novo produto:
-// addNewProduct(
-//     "Sabão em Pó - 1kg", 
-//     "/placeholder.svg?height=200&width=200", 
-//     {
-//         "Carone": 12.90,
-//         "Carrefour": 13.49,
-//         "Perim": 12.99,
-//         "BH": 13.29
-//     }
-// );
-
-// Fvck exemple

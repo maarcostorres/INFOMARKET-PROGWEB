@@ -454,6 +454,20 @@ footer {
     border-top: 1px solid var(--shadow-color);
 }
 
+.footer-map {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .filter-bar {
@@ -520,3 +534,4 @@ footer {
         margin-left: 0;
     }
 }
+

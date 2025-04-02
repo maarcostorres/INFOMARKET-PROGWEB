@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const main = document.querySelector('main');
     
+    // Verificar se os elementos existem antes de continuar
+    if (!menuToggle || !sidebar || !main) return;
+    
     function toggleSidebar() {
         sidebar.classList.toggle('active');
         main.classList.toggle('sidebar-active');
@@ -28,8 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth >= 992) {
         sidebar.classList.add('active');
         main.classList.add('sidebar-active');
+    } else {
+        sidebar.classList.remove('active');
+        main.classList.remove('sidebar-active');
     }
     
+    // Adicionar evento de clique ao botão de menu
     menuToggle.addEventListener('click', function(event) {
         event.stopPropagation();
         toggleSidebar();
@@ -38,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fechar a sidebar quando clicar fora dela em telas pequenas
     document.addEventListener('click', function(event) {
         if (window.innerWidth < 992 && 
+            sidebar && 
+            menuToggle && 
             !sidebar.contains(event.target) && 
             !menuToggle.contains(event.target) && 
             sidebar.classList.contains('active')) {
@@ -63,14 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configurar o botão de alternância de tema
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+    }
 
     // Verificar e aplicar o tema salvo
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('light-mode');
-        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        if (themeToggleBtn) {
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
     }
     
     // Carregar produtos

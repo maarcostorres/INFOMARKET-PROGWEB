@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="index.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="profile.html" class="active">
+                    <i class="fas fa-user"></i>
+                    <span>Minha Conta <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">João Silva</div>
+                </a>
+            </div>
+            <div class="cart">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Meu carrinho</span>
+                    <div class="cart-info"><span id="cart-count">0</span> produtos</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-wine-bottle"></i> Adega <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-apple-alt"></i> Alimentos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cocktail"></i> Bebidas <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-spa"></i> Bem-Estar <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-candy-cane"></i> Bomboniere e Doces <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-drumstick-bite"></i> Carnes <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-snowflake"></i> Congelados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cheese"></i> Frios e Laticínios <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-pump-soap"></i> Higiene e Beleza <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-carrot"></i> Hortifruti <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-baby"></i> Infantil & Bebê <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-broom"></i> Limpeza <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-bread-slice"></i> Padaria e Rotisseria <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-paw"></i> Pet Shop <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-globe-americas"></i> Produtos Étnicos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-egg"></i> Páscoa <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-pepper-hot"></i> Temperos e Especiarias <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="profile-section">
+            <h1>Meu Perfil</h1>
+            
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <div class="avatar-image">
+                            <img src="/placeholder.svg?height=150&width=150" alt="Foto de perfil">
+                        </div>
+                        <button class="change-avatar-btn">
+                            <i class="fas fa-camera"></i> Alterar foto
+                        </button>
+                    </div>
+                    <ul class="profile-menu">
+                        <li class="active"><a href="#personal-info"><i class="fas fa-user"></i> Informações Pessoais</a></li>
+                        <li><a href="#address"><i class="fas fa-map-marker-alt"></i> Endereços</a></li>
+                        <li><a href="#orders"><i class="fas fa-shopping-bag"></i> Meus Pedidos</a></li>
+                        <li><a href="#preferences"><i class="fas fa-cog"></i> Preferências</a></li>
+                        <li><a href="#security"><i class="fas fa-lock"></i> Segurança</a></li>
+                        <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                    </ul>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-section-content active" id="personal-info">
+                        <h2>Informações Pessoais</h2>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nome Completo</label>
+                                    <input type="text" id="name" value="João Silva" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" id="cpf" value="123.456.789-00" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="joao.silva@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefone</label>
+                                    <input type="tel" id="phone" value="(27) 99999-9999" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="birth-date">Data de Nascimento</label>
+                                    <input type="date" id="birth-date" value="1990-01-01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gênero</label>
+                                    <select id="gender" required>
+                                        <option value="male" selected>Masculino</option>
+                                        <option value="female">Feminino</option>
+                                        <option value="other">Outro</option>
+                                        <option value="prefer-not-to-say">Prefiro não informar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Salvar Alterações</button>
+                                <button type="reset" class="cancel-btn">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="profile-section-content" id="address">
+                        <h2>Meus Endereços</h2>
+                        
+                        <div class="address-list">
+                            <div class="address-card">
+                                <div class="address-card-header">
+                                    <h3>Casa <span class="default-badge">Principal</span></h3>
+                                    <div class="address-actions">
+                                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="address-details">
+                                    <p>Rua das Flores, 123</p>
+                                    <p>Bairro Jardim - Vitória/ES</p>
+                                    <p>CEP: 29000-000</p>
+                                </div>
+                            </div>
+                            
+                            <div class="address-card">
+                                <div class="address-card-header">
+                                    <h3>Trabalho</h3>
+                                    <div class="address-actions">
+                                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="address-details">
+                                    <p>Av. Nossa Senhora da Penha, 456</p>
+                                    <p>Bairro Praia do Canto - Vitória/ES</p>
+                                    <p>CEP: 29055-131</p>
+                                </div>
+                            </div>
+                            
+                            <button class="add-address-btn">
+                                <i class="fas fa-plus"></i> Adicionar Novo Endereço
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section-content" id="orders">
+                        <h2>Meus Pedidos</h2>
+                        
+                        <div class="orders-list">
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-info">
+                                        <h3>Pedido #12345</h3>
+                                        <span class="order-date">15/04/2025</span>
+                                    </div>
+                                    <div class="order-status delivered">
+                                        <span>Entregue</span>
+                                    </div>
+                                </div>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="/images/Arroz.png" alt="Arroz">
+                                        <div class="order-item-details">
+                                            <h4>Arroz Branco Tipo 1 - 5kg</h4>
+                                            <p>Quantidade: 2</p>
+                                        </div>
+                                        <div class="order-item-price">
+                                            <span>R$ 45,80</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item">
+                                        <img src="/images/feijão.png" alt="Feijão">
+                                        <div class="order-item-details">
+                                            <h4>Feijão Preto - 1kg</h4>
+                                            <p>Quantidade: 3</p>
+                                        </div>
+                                        <div class="order-item-price">
+                                            <span>R$ 22,47</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-footer">
+                                    <div class="order-total">
+                                        <span>Total:</span>
+                                        <span class="total-value">R$ 68,27</span>
+                                    </div>
+                                    <button class="view-details-btn">Ver Detalhes</button>
+                                </div>
+                            </div>
+                            
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-info">
+                                        <h3>Pedido #12346</h3>
+                                        <span class="order-date">10/04/2025</span>
+                                    </div>
+                                    <div class="order-status processing">
+                                        <span>Em processamento</span>
+                                    </div>
+                                </div>
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <img src="/images/cafe.png" alt="Café">
+                                        <div class="order-item-details">
+                                            <h4>Café em Pó - 500g</h4>
+                                            <p>Quantidade: 1</p>
+                                        </div>
+                                        <div class="order-item-price">
+                                            <span>R$ 16,90</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-footer">
+                                    <div class="order-total">
+                                        <span>Total:</span>
+                                        <span class="total-value">R$ 16,90</span>
+                                    </div>
+                                    <button class="view-details-btn">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section-content" id="preferences">
+                        <h2>Preferências</h2>
+                        
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label>Notificações</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Receber emails sobre promoções
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Receber emails sobre novos produtos
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Receber notificações por SMS
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Supermercados Preferidos</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Carone
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Carrefour
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Perim
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> BH
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="distance">Distância máxima para busca (km)</label>
+                                <input type="range" id="distance" min="1" max="50" value="10" class="range-slider">
+                                <div class="range-value">10 km</div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Salvar Preferências</button>
+                                <button type="reset" class="cancel-btn">Restaurar Padrões</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="profile-section-content" id="security">
+                        <h2>Segurança</h2>
+                        
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label for="current-password">Senha Atual</label>
+                                <input type="password" id="current-password" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="new-password">Nova Senha</label>
+                                    <input type="password" id="new-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirmar Nova Senha</label>
+                                    <input type="password" id="confirm-password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="password-requirements">
+                                <h4>Requisitos de senha:</h4>
+                                <ul>
+                                    <li>Mínimo de 8 caracteres</li>
+                                    <li>Pelo menos uma letra maiúscula</li>
+                                    <li>Pelo menos um número</li>
+                                    <li>Pelo menos um caractere especial</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Autenticação de dois fatores</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="two-factor" class="toggle-input">
+                                    <label for="two-factor" class="toggle-label"></label>
+                                    <span class="toggle-status">Desativado</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Atualizar Senha</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket e um site comparador de preços de diferentes produtos em diferentes supermecados, permitindo que compre com o melhor preço no supermecado mais proimo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -35,6 +35,13 @@
             <p class="switch-auth">Já tem uma conta? <a href="login.html">Fazer login</a></p>
         </div>
     </div>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulando registro bem-sucedido
+            window.location.href = 'profile.html';
+        });
+    </script>
 </body>
 </html>
-

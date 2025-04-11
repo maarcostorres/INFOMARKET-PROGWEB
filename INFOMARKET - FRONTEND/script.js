@@ -101,6 +101,9 @@ function toggleTheme() {
   
     // Inicializar funcionalidades da página de perfil
     initProfilePage()
+
+    // Verificar se o usuário é administrador
+    checkAdminStatus()
   })
   
   // Dados de exemplo para produtos
@@ -705,5 +708,40 @@ function toggleTheme() {
       })
     }
   }
+
+  // Função para verificar se o usuário é administrador
+  function checkAdminStatus() {
+    // Adicionar link para área administrativa no menu do usuário
+    const accountMenu = document.querySelector(".account a");
+    if (accountMenu) {
+      // Verificar se o usuário está logado como administrador
+      // Aqui você usaria uma lógica real para verificar se o usuário é admin
+      const isAdmin = localStorage.getItem("isAdmin") === "true";
+      
+      if (isAdmin) {
+        // Adicionar opção de administração ao menu do usuário
+        const accountInfo = accountMenu.querySelector(".account-info");
+        if (accountInfo) {
+          accountInfo.innerHTML = "Admin";
+        }
+        
+        // Adicionar link para o painel administrativo
+        const userActions = document.querySelector(".user-actions");
+        if (userActions) {
+          const adminLink = document.createElement("div");
+          adminLink.className = "admin-link";
+          adminLink.innerHTML = `
+            <a href="admin-dashboard.html">
+              <i class="fas fa-user-shield"></i>
+              <span>Painel Admin</span>
+            </a>
+          `;
+          userActions.appendChild(adminLink);
+        }
+      }
+    }
+  }
   
-  
+  // Simular login como administrador (para fins de demonstração)
+  // Em um sistema real, isso seria feito através de autenticação adequada
+  localStorage.setItem("isAdmin", "true");

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="admin-dashboard.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="#" class="active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Administrador <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Admin</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Voltar para o Site <i class="fas fa-external-link-alt"></i></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Produtos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Usuários <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Pedidos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-store"></i> Supermercados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Configurações <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="admin-section">
+            <h1>Dashboard</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Produtos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon users">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Usuários</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Pedidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-value">R$ 2.450</div>
+                    <div class="stat-label">Receita</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3 class="chart-title">Visão Geral de Vendas</h3>
+                    <div class="chart-period">
+                        <button class="period-btn">Dia</button>
+                        <button class="period-btn active">Semana</button>
+                        <button class="period-btn">Mês</button>
+                        <button class="period-btn">Ano</button>
+                    </div>
+                </div>
+                <div class="chart">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="admin-content">
+                <h2>Atividades Recentes</h2>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Atividade</th>
+                            <th>Usuário</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Novo pedido #12348</td>
+                            <td>Maria Silva</td>
+                            <td>11/04/2025 14:30</td>
+                            <td><span class="user-status active">Concluído</span></td>
+                        </tr>
+                        <tr>
+                            <td>Atualização de preço - Arroz</td>
+                            <td>Admin</td>
+                            <td>11/04/2025 11:15</td>
+                            <td><span class="user-status active">Concluído</span></td>
+                        </tr>
+                        <tr>
+                            <td>Novo usuário registrado</td>
+                            <td>Pedro Santos</td>
+                            <td>10/04/2025 16:45</td>
+                            <td><span class="user-status active">Concluído</span></td>
+                        </tr>
+                        <tr>
+                            <td>Novo pedido #12347</td>
+                            <td>Carlos Oliveira</td>
+                            <td>10/04/2025 10:20</td>
+                            <td><span class="user-status pending">Pendente</span></td>
+                        </tr>
+                        <tr>
+                            <td>Atualização de preço - Feijão</td>
+                            <td>Admin</td>
+                            <td>09/04/2025 15:30</td>
+                            <td><span class="user-status active">Concluído</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/admin-script.js"></script>
+    <script src="assets/admin-user.js"></script>
+    <script src="assets/profile-script.js"></script>
+    <script src="assets/cart-script.js"></script>
+</body>
+</html>

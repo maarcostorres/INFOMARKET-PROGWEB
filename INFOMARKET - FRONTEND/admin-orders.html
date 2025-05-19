@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Pedidos - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="admin-dashboard.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="#" class="active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Administrador <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Admin</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Voltar para o Site <i class="fas fa-external-link-alt"></i></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Produtos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Usuários <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-orders.html"><i class="fas fa-shopping-cart"></i> Pedidos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-supermarkets.html"><i class="fas fa-store"></i> Supermercados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-settings.html"><i class="fas fa-cog"></i> Configurações <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="admin-section">
+            <h1>Gerenciar Pedidos</h1>
+            
+            <div class="admin-content">
+                <div class="admin-toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar pedido..." id="order-search">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="status-filter">
+                            <option value="">Todos os status</option>
+                            <option value="pending">Pendente</option>
+                            <option value="processing">Em processamento</option>
+                            <option value="shipped">Enviado</option>
+                            <option value="delivered">Entregue</option>
+                            <option value="canceled">Cancelado</option>
+                        </select>
+                        <select id="date-filter">
+                            <option value="">Todas as datas</option>
+                            <option value="today">Hoje</option>
+                            <option value="week">Esta semana</option>
+                            <option value="month">Este mês</option>
+                        </select>
+                    </div>
+                    <button class="add-new-btn" id="export-orders-btn">
+                        <i class="fas fa-file-export"></i> Exportar
+                    </button>
+                </div>
+                
+                <table class="admin-table" id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Supermercado</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="1001">
+                            <td class="order-id">#1001</td>
+                            <td>Marcos Vinicius</td>
+                            <td>15/04/2025 14:30</td>
+                            <td>Carone</td>
+                            <td>R$ 157,90</td>
+                            <td><span class="user-status active">Entregue</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1001"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1001"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1001"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="1002">
+                            <td class="order-id">#1002</td>
+                            <td>Maria Silva</td>
+                            <td>14/04/2025 10:15</td>
+                            <td>Carrefour</td>
+                            <td>R$ 89,50</td>
+                            <td><span class="user-status active">Entregue</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1002"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1002"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1002"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="1003">
+                            <td class="order-id">#1003</td>
+                            <td>João Santos</td>
+                            <td>14/04/2025 16:45</td>
+                            <td>Perim</td>
+                            <td>R$ 124,75</td>
+                            <td><span class="user-status pending">Pendente</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1003"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1003"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1003"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="1004">
+                            <td class="order-id">#1004</td>
+                            <td>Ana Oliveira</td>
+                            <td>13/04/2025 09:20</td>
+                            <td>BH</td>
+                            <td>R$ 67,30</td>
+                            <td><span class="user-status processing">Em processamento</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1004"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1004"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1004"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="1005">
+                            <td class="order-id">#1005</td>
+                            <td>Carlos Pereira</td>
+                            <td>12/04/2025 14:10</td>
+                            <td>Carone</td>
+                            <td>R$ 215,40</td>
+                            <td><span class="user-status shipped">Enviado</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1005"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1005"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1005"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="1006">
+                            <td class="order-id">#1006</td>
+                            <td>Juliana Costa</td>
+                            <td>11/04/2025 11:30</td>
+                            <td>Carrefour</td>
+                            <td>R$ 78,25</td>
+                            <td><span class="user-status canceled">Cancelado</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1006"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1006"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1006"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Visualização de Pedido -->
+    <div class="modal-overlay" id="order-view-modal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h3 id="order-view-title">Detalhes do Pedido #1001</h3>
+                <button class="modal-close" id="order-view-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="order-details">
+                    <div class="order-info-grid">
+                        <div class="order-info-card">
+                            <h4><i class="fas fa-user"></i> Informações do Cliente</h4>
+                            <p><strong>Nome:</strong> <span id="customer-name">Marcos Vinicius</span></p>
+                            <p><strong>Email:</strong> <span id="customer-email">maarcosvstorres12@gmail.com</span></p>
+                            <p><strong>Telefone:</strong> <span id="customer-phone">(27) 99668-9530</span></p>
+                        </div>
+                        <div class="order-info-card">
+                            <h4><i class="fas fa-truck"></i> Informações de Entrega</h4>
+                            <p><strong>Endereço:</strong> <span id="delivery-address">Rua das Flores, 123</span></p>
+                            <p><strong>Cidade:</strong> <span id="delivery-city">Vitória</span></p>
+                            <p><strong>CEP:</strong> <span id="delivery-zip">29000-000</span></p>
+                        </div>
+                        <div class="order-info-card">
+                            <h4><i class="fas fa-info-circle"></i> Informações do Pedido</h4>
+                            <p><strong>Data:</strong> <span id="order-date">15/04/2025 14:30</span></p>
+                            <p><strong>Status:</strong> <span id="order-status" class="user-status active">Entregue</span></p>
+                            <p><strong>Supermercado:</strong> <span id="order-supermarket">Carone</span></p>
+                        </div>
+                        <div class="order-info-card">
+                            <h4><i class="fas fa-credit-card"></i> Informações de Pagamento</h4>
+                            <p><strong>Método:</strong> <span id="payment-method">Cartão de Crédito</span></p>
+                            <p><strong>Status:</strong> <span id="payment-status" class="user-status active">Pago</span></p>
+                            <p><strong>Total:</strong> <span id="order-total">R$ 157,90</span></p>
+                        </div>
+                    </div>
+
+                    <h4 class="items-title">Itens do Pedido</h4>
+                    <table class="order-items-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Preço Unitário</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-items">
+                            <tr>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="/images/Arroz.png" alt="Arroz">
+                                        <span>Arroz Branco Tipo 1 - 5kg</span>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                                <td>R$ 22,90</td>
+                                <td>R$ 45,80</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="/images/feijão.png" alt="Feijão">
+                                        <span>Feijão Preto - 1kg</span>
+                                    </div>
+                                </td>
+                                <td>3</td>
+                                <td>R$ 7,49</td>
+                                <td>R$ 22,47</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="/images/acucar.png" alt="Açúcar">
+                                        <span>Açúcar Cristal - 5kg</span>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>R$ 15,99</td>
+                                <td>R$ 15,99</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="/images/cafe.png" alt="Café">
+                                        <span>Café em Pó - 500g</span>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                                <td>R$ 16,90</td>
+                                <td>R$ 33,80</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="/images/soja.png" alt="Óleo de Soja">
+                                        <span>Óleo de Soja - 900ml</span>
+                                    </div>
+                                </td>
+                                <td>5</td>
+                                <td>R$ 4,79</td>
+                                <td>R$ 23,95</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right"><strong>Subtotal:</strong></td>
+                                <td>R$ 142,01</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-right"><strong>Frete:</strong></td>
+                                <td>R$ 15,89</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                                <td><strong>R$ 157,90</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="order-notes">
+                        <h4><i class="fas fa-sticky-note"></i> Observações</h4>
+                        <p id="order-notes">Entregar no período da tarde. Deixar com o porteiro se não estiver em casa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="print-order-btn"><i class="fas fa-print"></i> Imprimir</button>
+                <button class="modal-btn cancel" id="order-view-cancel">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Pedido -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="order-modal-title">Editar Pedido</h3>
+                <button class="modal-close" id="order-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form" id="order-form">
+                    <input type="hidden" id="order-id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="order-customer">Cliente</label>
+                            <input type="text" id="order-customer" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="order-date-input">Data</label>
+                            <input type="text" id="order-date-input" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="order-supermarket-select">Supermercado</label>
+                            <select id="order-supermarket-select">
+                                <option value="Carone">Carone</option>
+                                <option value="Carrefour">Carrefour</option>
+                                <option value="Perim">Perim</option>
+                                <option value="BH">BH</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order-status-select">Status</label>
+                            <select id="order-status-select">
+                                <option value="pending">Pendente</option>
+                                <option value="processing">Em processamento</option>
+                                <option value="shipped">Enviado</option>
+                                <option value="delivered">Entregue</option>
+                                <option value="canceled">Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-notes-input">Observações</label>
+                        <textarea id="order-notes-input"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" id="order-modal-cancel">Cancelar</button>
+                <button class="modal-btn save" id="order-modal-save">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/admin-script.js"></script>
+    <script src="assets/admin-user.js"></script>
+    <script src="assets/profile-script.js"></script>
+    <script src="assets/cart-script.js"></script>
+    <script src="assets/admin-common.js"></script>
+    <script src="assets/admin-orders.js"></script>
+</body>
+</html>

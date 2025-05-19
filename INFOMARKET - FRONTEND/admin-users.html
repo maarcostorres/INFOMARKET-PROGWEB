@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="admin-dashboard.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="#" class="active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Administrador <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Admin</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Voltar para o Site <i class="fas fa-external-link-alt"></i></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Produtos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Usuários <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Pedidos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-store"></i> Supermercados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Configurações <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="admin-section">
+            <h1>Gerenciar Usuários</h1>
+            
+            <div class="admin-content">
+                <div class="admin-toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar usuário..." id="user-search">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="status-filter">
+                            <option value="">Todos os status</option>
+                            <option value="active">Ativo</option>
+                            <option value="inactive">Inativo</option>
+                            <option value="pending">Pendente</option>
+                        </select>
+                    </div>
+                    <button class="add-new-btn" id="add-user-btn">
+                        <i class="fas fa-plus"></i> Adicionar Usuário
+                    </button>
+                </div>
+                
+                <table class="admin-table" id="users-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Data de Registro</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="1">
+                            <td class="user-name">Marcos Vinicius</td>
+                            <td>maarcosvstorres12@gmail.com</td>
+                            <td>(27) 99668-9530</td>
+                            <td>02/12/2024</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn edit-btn" data-id="1"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="2">
+                            <td class="user-name">Maria Silva</td>
+                            <td>maria.silva@email.com</td>
+                            <td>(27) 98765-4321</td>
+                            <td>15/03/2025</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn edit-btn" data-id="2"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="2"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="3">
+                            <td class="user-name">João Santos</td>
+                            <td>joao.santos@email.com</td>
+                            <td>(27) 91234-5678</td>
+                            <td>20/03/2025</td>
+                            <td><span class="user-status inactive">Inativo</span></td>
+                            <td class="actions">
+                                <button class="btn edit-btn" data-id="3"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="3"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="4">
+                            <td class="user-name">Ana Oliveira</td>
+                            <td>ana.oliveira@email.com</td>
+                            <td>(27) 98877-6655</td>
+                            <td>05/04/2025</td>
+                            <td><span class="user-status pending">Pendente</span></td>
+                            <td class="actions">
+                                <button class="btn edit-btn" data-id="4"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="4"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="5">
+                            <td class="user-name">Carlos Pereira</td>
+                            <td>carlos.pereira@email.com</td>
+                            <td>(27) 99988-7766</td>
+                            <td>10/04/2025</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn edit-btn" data-id="5"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="5"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Edição de Usuário -->
+    <div class="modal-overlay" id="user-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="user-modal-title">Editar Usuário</h3>
+                <button class="modal-close" id="user-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form" id="user-form">
+                    <input type="hidden" id="user-id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user-name">Nome Completo</label>
+                            <input type="text" id="user-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">Email</label>
+                            <input type="email" id="user-email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user-phone">Telefone</label>
+                            <input type="tel" id="user-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-status">Status</label>
+                            <select id="user-status" required>
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                                <option value="pending">Pendente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user-role">Função</label>
+                            <select id="user-role" required>
+                                <option value="user">Usuário</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-birth">Data de Nascimento</label>
+                            <input type="date" id="user-birth">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-address">Endereço</label>
+                        <textarea id="user-address"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" id="user-modal-cancel">Cancelar</button>
+                <button class="modal-btn save" id="user-modal-save">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/admin-script.js"></script>
+    <script src="assets/admin-user.js"></script>
+    <script src="assets/profile-script.js"></script>
+    <script src="assets/cart-script.js"></script>
+</body>
+</html>

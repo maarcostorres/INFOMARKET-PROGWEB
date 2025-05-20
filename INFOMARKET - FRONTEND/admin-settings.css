@@ -1,0 +1,516 @@
+/* Estilos específicos para a página de configurações */
+.settings-container {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.settings-nav {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.settings-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-nav li {
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-color);
+  transition: background-color 0.3s;
+}
+
+.settings-nav li:hover {
+  background-color: var(--shadow-color);
+}
+
+.settings-nav li.active {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.settings-nav li i {
+  width: 20px;
+  text-align: center;
+}
+
+.settings-content {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.settings-tab {
+  display: none;
+}
+
+.settings-tab.active {
+  display: block;
+}
+
+.settings-tab h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: var(--text-color);
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--shadow-color);
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.save-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.cancel-btn {
+  background: none;
+  border: 1px solid var(--shadow-color);
+  color: var(--text-color);
+}
+
+.save-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+/* Estilos para os elementos de formulário específicos */
+.social-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-input i {
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.social-input input {
+  flex: 1;
+}
+
+.logo-upload {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-logo {
+  width: 200px;
+  height: 60px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--shadow-color);
+}
+
+.current-logo.small {
+  width: 32px;
+  height: 32px;
+}
+
+.current-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.logo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.upload-btn {
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.upload-btn:hover {
+  opacity: 0.9;
+}
+
+.logo-hint {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Estilos para as opções de tema */
+.theme-options {
+  display: flex;
+  gap: 15px;
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.theme-preview {
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.theme-option.active .theme-preview {
+  border-color: #e74c3c;
+}
+
+.theme-preview.light {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-preview.dark {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-preview.auto {
+  background: linear-gradient(to right, #ffffff 50%, #1a1a1a 50%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-option span {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Estilos para o seletor de cores */
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-picker input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.color-picker span {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Estilos para as opções de layout */
+.layout-options {
+  display: flex;
+  gap: 15px;
+}
+
+.layout-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.layout-preview {
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.layout-option.active .layout-preview {
+  border-color: #e74c3c;
+}
+
+.layout-preview.grid {
+  background-image: repeating-linear-gradient(
+      0deg,
+      var(--shadow-color),
+      var(--shadow-color) 1px,
+      transparent 1px,
+      transparent 10px
+    ), repeating-linear-gradient(90deg, var(--shadow-color), var(--shadow-color) 1px, transparent 1px, transparent 10px);
+}
+
+.layout-preview.list {
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--shadow-color),
+    var(--shadow-color) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+.layout-option span {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Estilos para as opções de notificação */
+.notification-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 576px) {
+  .notification-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.notification-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+/* Estilos para o toggle switch */
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #e74c3c;
+}
+
+.toggle-input:checked + .toggle-label:after {
+  left: 28px;
+}
+
+.toggle-status {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Estilos para as permissões da API */
+.api-key-container {
+  display: flex;
+  gap: 10px;
+}
+
+.api-key-container input {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.regenerate-key-btn {
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.regenerate-key-btn:hover {
+  opacity: 0.9;
+}
+
+.api-permissions {
+  display: flex;
+  gap: 15px;
+}
+
+.permission-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Estilos para o backup manual */
+.manual-backup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.backup-now-btn {
+  align-self: flex-start;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.backup-now-btn:hover {
+  opacity: 0.9;
+}
+
+.backup-status {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Estilos para as tentativas de login */
+.login-attempts {
+  display: flex;
+  gap: 20px;
+}
+
+.attempt-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.attempt-option input {
+  width: 60px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .login-attempts {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-nav {
+    margin-bottom: 20px;
+  }
+
+  .settings-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .settings-nav li {
+    flex: 1 1 auto;
+    min-width: 120px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .settings-content {
+    padding: 20px;
+  }
+
+  .theme-options,
+  .layout-options {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-upload {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .api-key-container {
+    flex-direction: column;
+  }
+
+  .regenerate-key-btn {
+    align-self: flex-start;
+  }
+}

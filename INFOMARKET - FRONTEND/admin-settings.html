@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="admin-settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="admin-dashboard.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="#" class="active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Administrador <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Admin</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Voltar para o Site <i class="fas fa-external-link-alt"></i></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Produtos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Usuários <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-orders.html"><i class="fas fa-shopping-cart"></i> Pedidos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-supermarkets.html"><i class="fas fa-store"></i> Supermercados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-settings.html" class="active"><i class="fas fa-cog"></i> Configurações <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="admin-section">
+            <h1>Configurações</h1>
+            
+            <div class="admin-content">
+                <div class="settings-container">
+                    <!-- Navegação das configurações -->
+                    <div class="settings-nav">
+                        <ul>
+                            <li class="active" data-tab="general"><i class="fas fa-sliders-h"></i> Geral</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Conteúdo das configurações -->
+                    <div class="settings-content">
+                        <!-- Configurações Gerais -->
+                        <div class="settings-tab active" id="general-tab">
+                            <h2>Configurações Gerais</h2>
+                            
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="site-name">Nome do Site</label>
+                                    <input type="text" id="site-name" value="InfoMarket">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="site-description">Descrição do Site</label>
+                                    <textarea id="site-description">InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</textarea>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contact-email">Email de Contato</label>
+                                        <input type="email" id="contact-email" value="contato@infomarket.com.br">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-phone">Telefone de Contato</label>
+                                        <input type="tel" id="contact-phone" value="(27) 99668-9530">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">Endereço</label>
+                                    <input type="text" id="address" value="Av. Fernando Ferrari, 514 - Goiabeiras, Vitória - ES, 29075-910">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Redes Sociais</label>
+                                    <div class="social-inputs">
+                                        <div class="social-input">
+                                            <i class="fab fa-instagram"></i>
+                                            <input type="text" id="instagram" value="https://www.instagram.com/itsmaarkim/">
+                                        </div>
+                                        <div class="social-input">
+                                            <i class="fab fa-x"></i>
+                                            <input type="text" id="twitter" value="https://x.com/itsmaarkim">
+                                        </div>
+                                        <div class="social-input">
+                                            <i class="fab fa-linkedin"></i>
+                                            <input type="text" id="linkedin" value="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Logo do Site</label>
+                                    <div class="logo-upload">
+                                        <div class="current-logo">
+                                            <img src="/images/logo.png" alt="Logo atual">
+                                        </div>
+                                        <div class="logo-actions">
+                                            <button type="button" class="upload-btn">Carregar Nova Logo</button>
+                                            <p class="logo-hint">Tamanho recomendado: 200x60px, formato PNG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="save-btn">Salvar Alterações</button>
+                                    <button type="reset" class="cancel-btn">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/admin-script.js"></script>
+    <script src="assets/admin-user.js"></script>
+    <script src="assets/profile-script.js"></script>
+    <script src="assets/cart-script.js"></script>
+    <script src="assets/admin-settings.js"></script>
+</body>
+</html>

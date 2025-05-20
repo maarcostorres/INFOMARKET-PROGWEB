@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Supermercados - InfoMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- HEADER -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="admin-dashboard.html"><h1>InfoMarket</h1></a>
+        </div>
+        <div class="user-actions">
+            <div class="account">
+                <a href="#" class="active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Administrador <i class="fas fa-chevron-down"></i></span>
+                    <div class="account-info">Admin</div>
+                </a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Voltar para o Site <i class="fas fa-external-link-alt"></i></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-products.html"><i class="fas fa-box"></i> Produtos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Usuários <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-orders.html"><i class="fas fa-shopping-cart"></i> Pedidos <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-supermarkets.html" class="active"><i class="fas fa-store"></i> Supermercados <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="admin-settings.html"><i class="fas fa-cog"></i> Configurações <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <section class="admin-section">
+            <h1>Gerenciar Supermercados</h1>
+            
+            <div class="admin-content">
+                <div class="admin-toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar supermercado..." id="supermarket-search">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="status-filter">
+                            <option value="">Todos os status</option>
+                            <option value="active">Ativo</option>
+                            <option value="inactive">Inativo</option>
+                            <option value="pending">Pendente</option>
+                        </select>
+                        <select id="location-filter">
+                            <option value="">Todas as localizações</option>
+                            <option value="vitoria">Vitória</option>
+                            <option value="vila-velha">Vila Velha</option>
+                            <option value="serra">Serra</option>
+                            <option value="cariacica">Cariacica</option>
+                        </select>
+                    </div>
+                    <button class="add-new-btn" id="add-supermarket-btn">
+                        <i class="fas fa-plus"></i> Adicionar Supermercado
+                    </button>
+                </div>
+                
+                <table class="admin-table" id="supermarkets-table">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Telefone</th>
+                            <th>Produtos</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="1">
+                            <td><img src="/images/caronelogo.png" alt="Carone"></td>
+                            <td class="supermarket-name">Carone</td>
+                            <td>Av. Jerônimo Monteiro, 1000, Vitória</td>
+                            <td>(27) 3333-1111</td>
+                            <td>245</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="1"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="1"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="1"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="2">
+                            <td><img src="/images/carrefourlogo.png" alt="Carrefour"></td>
+                            <td class="supermarket-name">Carrefour</td>
+                            <td>Av. Norte Sul, 500, Serra</td>
+                            <td>(27) 3333-2222</td>
+                            <td>312</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="2"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="2"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="2"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="3">
+                            <td><img src="/images/perimlogo.png" alt="Perim"></td>
+                            <td class="supermarket-name">Perim</td>
+                            <td>Av. Luciano das Neves, 200, Vila Velha</td>
+                            <td>(27) 3333-3333</td>
+                            <td>198</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="3"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="3"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="3"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="4">
+                            <td><img src="/images/bhlogo.png" alt="BH"></td>
+                            <td class="supermarket-name">BH</td>
+                            <td>Av. Carlos Lindenberg, 300, Cariacica</td>
+                            <td>(27) 3333-4444</td>
+                            <td>176</td>
+                            <td><span class="user-status active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn view-btn" data-id="4"><i class="fas fa-eye"></i></button>
+                                <button class="btn edit-btn" data-id="4"><i class="fas fa-edit"></i></button>
+                                <button class="btn delete-btn" data-id="4"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Visualização de Supermercado -->
+    <div class="modal-overlay" id="supermarket-view-modal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h3 id="supermarket-view-title">Detalhes do Supermercado - Carone</h3>
+                <button class="modal-close" id="supermarket-view-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="supermarket-details">
+                    <div class="supermarket-header">
+                        <div class="supermarket-logo">
+                            <img src="/images/carone-logo.png" alt="Carone" id="supermarket-logo">
+                        </div>
+                        <div class="supermarket-info">
+                            <h2 id="supermarket-name">Carone</h2>
+                            <p id="supermarket-address"><i class="fas fa-map-marker-alt"></i> Av. Jerônimo Monteiro, 1000, Vitória</p>
+                            <p id="supermarket-phone"><i class="fas fa-phone"></i> (27) 3333-1111</p>
+                            <p id="supermarket-email"><i class="fas fa-envelope"></i> contato@carone.com.br</p>
+                            <p id="supermarket-website"><i class="fas fa-globe"></i> <a href="https://www.carone.com.br" target="_blank">www.carone.com.br</a></p>
+                        </div>
+                        <div class="supermarket-status">
+                            <span class="user-status active" id="supermarket-status-badge">Ativo</span>
+                        </div>
+                    </div>
+
+                    <div class="supermarket-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon products">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-value" id="supermarket-products">245</div>
+                            <div class="stat-label">Produtos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orders">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="stat-value" id="supermarket-orders">87</div>
+                            <div class="stat-label">Pedidos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon revenue">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-value" id="supermarket-revenue">R$ 12.450</div>
+                            <div class="stat-label">Receita</div>
+                        </div>
+                    </div>
+
+                    <div class="supermarket-sections">
+                        <div class="supermarket-section">
+                            <h4><i class="fas fa-info-circle"></i> Sobre</h4>
+                            <p id="supermarket-description">O Carone é uma rede de supermercados com mais de 30 anos de tradição no Espírito Santo. Oferecemos produtos de qualidade com os melhores preços e um atendimento diferenciado para nossos clientes.</p>
+                        </div>
+                        <div class="supermarket-section">
+                            <h4><i class="fas fa-clock"></i> Horário de Funcionamento</h4>
+                            <p id="supermarket-hours">Segunda a Sábado: 08:00 às 22:00<br>Domingo: 08:00 às 20:00</p>
+                        </div>
+                    </div>
+
+                    <div class="supermarket-section">
+                        <h4><i class="fas fa-map-marked-alt"></i> Localização</h4>
+                        <div class="supermarket-map" id="supermarket-map">
+                            <!-- Aqui entraria um mapa, mas vamos simular com uma imagem -->
+                            <img src="/images/map-placeholder.jpg" alt="Mapa" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="view-products-btn"><i class="fas fa-box"></i> Ver Produtos</button>
+                <button class="modal-btn cancel" id="supermarket-view-cancel">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Supermercado -->
+    <div class="modal-overlay" id="supermarket-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="supermarket-modal-title">Editar Supermercado</h3>
+                <button class="modal-close" id="supermarket-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form" id="supermarket-form">
+                    <input type="hidden" id="supermarket-id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="supermarket-name-input">Nome</label>
+                            <input type="text" id="supermarket-name-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supermarket-logo-input">URL do Logo</label>
+                            <input type="text" id="supermarket-logo-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="supermarket-address-input">Endereço</label>
+                        <input type="text" id="supermarket-address-input" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="supermarket-phone-input">Telefone</label>
+                            <input type="tel" id="supermarket-phone-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supermarket-email-input">Email</label>
+                            <input type="email" id="supermarket-email-input" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="supermarket-website-input">Website</label>
+                            <input type="url" id="supermarket-website-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="supermarket-status-input">Status</label>
+                            <select id="supermarket-status-input" required>
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                                <option value="pending">Pendente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="supermarket-hours-input">Horário de Funcionamento</label>
+                        <textarea id="supermarket-hours-input"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="supermarket-description-input">Descrição</label>
+                        <textarea id="supermarket-description-input"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" id="supermarket-modal-cancel">Cancelar</button>
+                <button class="modal-btn save" id="supermarket-modal-save">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>InfoMarket é um site comparador de preços de diferentes produtos em diferentes supermercados, permitindo que compre com o melhor preço no supermercado mais próximo a você.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@infomarket.com.br</p>
+                <p><i class="fas fa-phone"></i> (27) 99668-9530</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/itsmaarkim/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/itsmaarkim" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/marcos-vinicius-silva-torres-134b57264/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 InfoMarket - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/admin-script.js"></script>
+    <script src="assets/admin-user.js"></script>
+    <script src="assets/profile-script.js"></script>
+    <script src="assets/cart-script.js"></script>
+    <script src="assets/admin-super.js"></script>
+</body>
+</html>
